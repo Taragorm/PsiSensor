@@ -6,7 +6,7 @@
 
 //========================================================================
 /**
-    Handle HS1101 Humidity sensor; this bit just does the computation.alignas
+    Handle HS1101 Humidity sensor; this bit just does the computation.
 
     @tparam T   Thermistor and Humidity sensor base class
  */

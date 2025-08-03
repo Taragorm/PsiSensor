@@ -55,6 +55,7 @@ void HumidATtiny3216::beginCounting()
 {
     //Serial.write("4\n");
     TCA0Control::count(0);
+
     RtcControl::enable(false);
     RtcControl::clearInterruptFlags();
     RtcControl::clearPrescaler();
@@ -62,8 +63,6 @@ void HumidATtiny3216::beginCounting()
     RtcControl::enable(true);
     TCA0Control::enable(true);
     _sampling = true;
-    Serial.printf("RTC_CTRLA   =%x\n", RTC_CTRLA);
-    Serial.printf("RTC_PITCTRLA=%x\n", RTC_PITCTRLA);
 }
 //-----------------------------------------
 bool HumidATtiny3216::isCounting()
@@ -94,7 +93,7 @@ uint16_t HumidATtiny3216::endCounting()
     if(_xtalWasEnabled)
         ClockControl::disableXtal();
 
-    Serial.printf("counts=%u\r\n", _counts);
+    //Serial.printf("counts=%u\r\n", _counts);
     return _counts;
 }
 //-----------------------------------------
